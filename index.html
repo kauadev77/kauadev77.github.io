@@ -4,33 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kauã de Jesus - Portfólio</title>
+  <meta name="description" content="Portfólio de Kauã de Jesus, estudante de Ciência da Computação na Mackenzie, com projetos em Swift e Python.">
+  <meta name="keywords" content="Kauã de Jesus, desenvolvedor, Ciência da Computação, Mackenzie, Swift, Python, IA, backend">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     /* Estilização personalizada */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
     .btn-social:hover {
       background-color: #374151;
       transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
     }
     .icon-svg {
       fill: #f3f4f6;
     }
-    .project-link:hover {
-      transform: translateY(-2px);
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
     }
     /* Gradiente animado no cabeçalho */
     .header-bg {
-      background: linear-gradient(45deg, #1f2937, #4b5563, #1f2937);
+      background: linear-gradient(45deg, #111827, #374151, #111827);
       background-size: 200% 200%;
-      animation: gradientAnimation 8s ease infinite;
+      animation: gradientAnimation 10s ease infinite;
     }
     @keyframes gradientAnimation {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    /* Animação de rolagem */
+    /* Animação de entrada para o cabeçalho */
+    .header-content {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Animação de rolagem para seções */
     .section {
       opacity: 0;
       transform: translateY(20px);
@@ -40,79 +57,72 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* GIF com filtro embaçado atrás da foto */
-    .gif-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(10px);
-      opacity: 0.3;
-      z-index: 0;
-    }
+    /* Animação para foto */
     .profile-photo {
-      position: relative;
-      z-index: 1;
+      animation: scaleIn 1.5s ease;
+    }
+    @keyframes scaleIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body class="bg-black font-sans text-gray-100 antialiased">
   <!-- Cabeçalho -->
-  <header class="header-bg text-white py-12 text-center relative overflow-hidden">
-    <img src="foto.jpg" alt="Foto de Kauã de Jesus" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-gray-100 profile-photo">
-    <h1 class="text-4xl font-bold">Kauã de Jesus</h1>
-    <p class="mt-2 text-lg">Estudante de Ciência da Computação • Desenvolvedor Iniciante</p>
-    <a href="curriculo-kaua.pdf" download class="mt-4 inline-block bg-gray-100 text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-gray-300 transition duration-300">Baixar Currículo</a>
+  <header class="header-bg text-white py-16 text-center relative overflow-hidden">
+    <div class="header-content">
+      <img src="foto.jpg" alt="Foto de Kauã de Jesus" class="w-40 h-40 rounded-full mx-auto mb-6 object-cover border-4 border-gray-100 profile-photo">
+      <h1 class="text-5xl font-extrabold tracking-tight">Kauã de Jesus</h1>
+      <p class="mt-3 text-xl text-gray-300">Estudante de Ciência da Computação • Desenvolvedor Iniciante</p>
+      <a href="curriculo-kaua.pdf" download class="mt-6 inline-block bg-gray-100 text-gray-900 px-6 py-3 rounded-md font-medium hover:bg-gray-300 transition duration-300">Baixar Currículo</a>
+    </div>
   </header>
 
   <!-- Conteúdo Principal -->
-  <main class="max-w-5xl mx-auto p-6">
+  <main class="max-w-6xl mx-auto px-6 py-12">
     <!-- Sobre Mim -->
-    <section class="bg-gray-800 rounded-lg shadow-sm p-6 mb-8 border border-gray-700 section">
-      <h2 class="text-2xl font-semibold mb-4 text-white">Sobre Mim</h2>
-      <p class="text-gray-300">
-        Sou um estudante apaixonado por tecnologia, cursando Ciência da Computação na Universidade Presbiteriana Mackenzie. 
-        Tenho experiência com Python, Swift e estou aprendendo C. 
-        Busco evoluir como desenvolvedor front-end, unindo perfeccionismo, disciplina e trabalho em equipe.
+    <section class="bg-gray-800 rounded-lg shadow-sm p-8 mb-12 border border-gray-700 section">
+      <h2 class="text-3xl font-bold mb-6 text-white">Sobre Mim</h2>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        Sou um estudante de Ciência da Computação na Universidade Presbiteriana Mackenzie, movido pelos desafios da programação que me motivam a criar soluções inovadoras e superar obstáculos. Tenho experiência com Python, Swift e SwiftUI, além de estar aprendendo C, e já explorei cursos como TIC em Trilhas (Foundations, Lógica de Swift e Python) e n8n (no-code). Meus interesses estão voltados para áreas como inteligência artificial, banco de dados e desenvolvimento backend, com o objetivo de crescer como desenvolvedor e enfrentar projetos cada vez mais complexos. Sou persistente, extrovertido e criativo, sempre trazendo energia positiva para o trabalho em equipe. Fora da programação, jogo basquete pelo Mackenzie, sou apaixonado por rap, blues, MPB e samba, e adoro mergulhar no universo dos videogames.
       </p>
     </section>
 
     <!-- Projetos -->
-    <section class="bg-gray-800 rounded-lg shadow-sm p-6 mb-8 border border-gray-700 section">
-      <h2 class="text-2xl font-semibold mb-4 text-white">Projetos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="border border-gray-700 p-4 rounded-md">
-          <h3 class="text-xl font-medium text-white">Gerenciador de Tarefas (Swift)</h3>
+    <section class="bg-gray-800 rounded-lg shadow-sm p-8 mb-12 border border-gray-700 section">
+      <h2 class="text-3xl font-bold mb-6 text-white">Projetos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-md">
+          <h3 class="text-xl font-semibold text-white">Gerenciador de Tarefas (Swift)</h3>
           <p class="text-gray-300 mt-2">
             Um aplicativo de linha de comando para gerenciar tarefas, desenvolvido no curso de Lógica de Programação Baseada em Swift (TIC em Trilhas/Mackenzie).
           </p>
-          <a href="https://github.com/kauadev77/TaskManager.swift" class="project-link text-gray-100 hover:underline mt-2 inline-block">Ver no GitHub</a>
+          <a href="https://github.com/kauadev77/TaskManager.swift" class="text-gray-100 hover:underline mt-4 inline-block">Ver no GitHub</a>
         </div>
-        <div class="border border-gray-700 p-4 rounded-md">
-          <h3 class="text-xl font-medium text-white">Rastreador de Exercícios (Python)</h3>
+        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-md">
+          <h3 class="text-xl font-semibold text-white">Rastreador de Exercícios (Python)</h3>
           <p class="text-gray-300 mt-2">
-            Um programa para rastrear exercícios e calorias, criado no 1º semestre de Ciência da Computação (Mackenzie) em colaboração com Karrarass.
+            Um programa para rastrear exercícios e calorias, criado no 1º semestre de Ciência da Computação (Mackenzie) em colaboração com um colega de classe.
           </p>
-          <a href="https://github.com/kauadev77/fitness-tracker-python" class="project-link text-gray-100 hover:underline mt-2 inline-block">Ver no GitHub</a>
+          <a href="https://github.com/kauadev77/fitness-tracker-python" class="text-gray-100 hover:underline mt-4 inline-block">Ver no GitHub</a>
         </div>
-        <div class="border border-gray-700 p-4 rounded-md">
-          <h3 class="text-xl font-medium text-white">Pokédex (SwiftUI)</h3>
+        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-md">
+          <h3 class="text-xl font-semibold text-white">Pokédex (SwiftUI)</h3>
           <p class="text-gray-300 mt-2">
             Um aplicativo de Pokédex desenvolvido em SwiftUI como projeto de grupo, exibindo informações de Pokémon.
           </p>
-          <a href="https://github.com/kauadev77/Pokedex-SwiftUI" class="project-link text-gray-100 hover:underline mt-2 inline-block">Ver no GitHub</a>
+          <a href="https://github.com/kauadev77/Pokedex-SwiftUI" class="text-gray-100 hover:underline mt-4 inline-block">Ver no GitHub</a>
         </div>
       </div>
     </section>
 
     <!-- Habilidades -->
-    <section class="bg-gray-800 rounded-lg shadow-sm p-6 mb-8 border border-gray-700 section">
-      <h2 class="text-2xl font-semibold mb-4 text-white">Habilidades</h2>
-      <ul class="list-disc list-inside text-gray-300">
+    <section class="bg-gray-800 rounded-lg shadow-sm p-8 mb-12 border border-gray-700 section">
+      <h2 class="text-3xl font-bold mb-6 text-white">Habilidades</h2>
+      <ul class="list-disc list-inside text-gray-300 text-lg">
         <li>Python (Intermediário)</li>
         <li>Swift / SwiftUI</li>
+        <li>C (Iniciante)</li>
         <li>Git e GitHub</li>
         <li>Linux Fundamentals e AWS</li>
         <li>Trabalho em equipe e pensamento lógico</li>
@@ -120,27 +130,31 @@
     </section>
 
     <!-- Contatos -->
-    <section class="bg-gray-800 rounded-lg shadow-sm p-6 mb-8 border border-gray-700 section">
-      <h2 class="text-2xl font-semibold mb-4 text-white">Contatos</h2>
+    <section class="bg-gray-800 rounded-lg shadow-sm p-8 mb-12 border border-gray-700 section">
+      <h2 class="text-3xl font-bold mb-6 text-white">Contatos</h2>
       <div class="flex flex-wrap gap-4">
-        <a href="mailto:kauaje18@gmail.com" class="btn-social flex items-center bg-gray-800 border border-gray-600 px-4 py-2 rounded-md">
+        <a href="mailto:kauaje18@gmail.com" class="btn-social flex items-center bg-gray-800 border border-gray-600 px-5 py-3 rounded-md" aria-label="Enviar e-mail para Kauã">
           <svg class="icon-svg w-5 h-5 mr-2" viewBox="0 0 24 24"><path d="M22 4H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-1.4 2L12 11.4 3.4 6h17.2zM2 18V7.2l10 7.5 10-7.5V18H2z"/></svg>
           Email
         </a>
-        <a href="https://www.instagram.com/kauaog77" class="btn-social flex items-center bg-gray-800 border border-gray-600 px-4 py-2 rounded-md">
+        <a href="https://www.instagram.com/kauaog77" class="btn-social flex items-center bg-gray-800 border border-gray-600 px-5 py-3 rounded-md" aria-label="Perfil do Instagram de Kauã">
           <svg class="icon-svg w-5 h-5 mr-2" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm4.2 2.4c-4.1 0-7.4 3.3-7.4 7.4s3.3 7.4 7.4 7.4 7.4-3.3 7.4-7.4-3.3-7.4-7.4-7.4zm0 12.2c-2.7 0-4.9-2.2-4.9-4.9s2.2-4.9 4.9-4.9 4.9 2.2 4.9 4.9-2.2 4.9-4.9 4.9zm5.7-12.7c0 .7-.6 1.3-1.3 1.3s-1.3-.6-1.3-1.3.6-1.3 1.3-1.3 1.3.6 1.3 1.3z"/></svg>
           Instagram
         </a>
-        <a href="https://www.linkedin.com/in/devkaua" class="btn-social flex items-center bg-gray-800 border border-gray-600 px-4 py-2 rounded-md">
+        <a href="https://www.linkedin.com/in/devkaua" class="btn-social flex items-center bg-gray-800 border border-gray-600 px-5 py-3 rounded-md" aria-label="Perfil do LinkedIn de Kauã">
           <svg class="icon-svg w-5 h-5 mr-2" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.9 17H6.5V9.6h2.4V17zM7.7 8.4c-.8 0-1.4-.7-1.4-1.5s.6-1.5 1.4-1.5 1.4.7 1.4 1.5-.6 1.5-1.4 1.5zm9.3 8.6h-2.4v-3.7c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.7h-2.4V9.6h2.3v1.1c.3-.6 1.1-1.3 2.3-1.3 2.4 0 2.8 1.6 2.8 3.7v4.2z"/></svg>
           LinkedIn
+        </a>
+        <a href="https://github.com/kauadev77" class="btn-social flex items-center bg-gray-800 border border-gray-600 px-5 py-3 rounded-md" aria-label="Perfil do GitHub de Kauã">
+          <svg class="icon-svg w-5 h-5 mr-2" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48v-1.77c-2.78.61-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.564 9.564 0 0 1 12 6.8c.85.004 1.71.12 2.52.35 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.93.68 1.88v2.79c0 .27.16.58.67.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+          GitHub
         </a>
       </div>
     </section>
   </main>
 
   <!-- Rodapé -->
-  <footer class="bg-gray-900 text-white text-center py-4">
+  <footer class="bg-gray-900 text-white text-center py-6">
     <p>&copy; 2025 Kauã de Jesus. Todos os direitos reservados.</p>
   </footer>
 
