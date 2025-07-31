@@ -1,179 +1,201 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kauã de Jesus - Perfil Profissional</title>
-  <!-- Ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kauã de Jesus • Currículo</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    * {
       margin: 0;
-      background: linear-gradient(to bottom, #0d0d0d, #1a001a);
-      color: #e6e6e6;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
     }
 
-    /* Fundo com imagem personalizada no cabeçalho */
-    header {
-      background: url('desktop-source-code-and-wallpaper-by-coding-and-programming-free-photo.jpg') center/cover no-repeat;
-      color: #ffffff;
+    body {
+      background: linear-gradient(-45deg, #000, #222, #111, #333);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: white;
       text-align: center;
-      padding: 5rem 1rem 2rem;
-      position: relative;
-      animation: slideFade 1.2s ease-in-out;
+      padding: 30px;
     }
 
-    /* Foto de perfil centralizada */
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .profile-pic-container {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 20px auto;
       border-radius: 50%;
-      border: 4px solid #cc66ff;
-      margin-top: -70px;
-      background-color: #1a001a;
+      overflow: hidden;
+      position: relative;
+      border: 4px solid white;
     }
 
-    .main-content {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: #1a001a;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      animation: fadeIn 1s ease-in-out;
+    .profile-pic-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('tenor.gif');
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) brightness(0.7);
+      z-index: 1;
     }
 
-    h1, h2 {
-      color: #cc66ff;
-      animation: slideUp 0.6s ease;
+    .profile-pic {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    section {
+      margin: 40px 0;
+    }
+
+    section h2 {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    section p, ul {
+      max-width: 600px;
+      margin: auto;
+      font-size: 1em;
+      line-height: 1.6;
+      color: #ccc;
     }
 
     ul {
-      padding-left: 1.5rem;
+      list-style: none;
+      padding: 0;
     }
 
-    a {
-      color: #b366ff;
-      text-decoration: none;
+    ul li {
+      margin-bottom: 10px;
+      transition: 0.3s;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .btn-download {
-      display: inline-block;
-      margin: 1rem 0;
-      padding: 0.7rem 1.2rem;
-      background-color: #cc66ff;
+    ul li:hover {
       color: white;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+      transform: translateX(5px);
     }
 
-    .btn-download:hover {
-      background-color: #a64dff;
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-buttons a {
+      text-decoration: none;
+      color: white;
+      border: 1px solid white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .contact-buttons a:hover {
+      background-color: white;
+      color: black;
+      transform: scale(1.05);
+    }
+
+    .download-btn {
+      margin-top: 40px;
+    }
+
+    .download-btn a {
+      background: none;
+      border: 2px solid white;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .download-btn a:hover {
+      background-color: white;
+      color: black;
     }
 
     footer {
-      background: #000;
-      color: #b366ff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-
-    .icons a {
-      font-size: 1.4rem;
-      margin-right: 1rem;
-      color: #cc66ff;
-      transition: transform 0.3s ease;
-    }
-
-    .icons a:hover {
-      transform: scale(1.2);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes slideFade {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin-top: 60px;
+      font-size: 0.8em;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img class="profile-pic" src="IMG-20250523-WA0023.jpg" alt="Foto de perfil de Kauã">
-    <h1>Kauã de Jesus</h1>
-    <p>Estudante de Ciência da Computação | Em constante evolução | Dedicado e apaixonado por tecnologia</p>
-  </header>
 
-  <div class="main-content">
-    <section>
-      <h2>Sobre mim</h2>
-      <p>
-        Olá! Sou Kauã, estudante de Ciência da Computação no Mackenzie. Estou sempre em busca de evolução constante, tanto pessoal quanto profissional. Tenho dedicado minhas férias e tempo livre ao aprendizado de linguagens como <strong>Python</strong>, <strong>C</strong> e <strong>Swift</strong>, além de explorar conceitos de computação em nuvem com <strong>AWS</strong>.
-      </p>
-      <p>
-        Acredito que a disciplina e o esforço são as maiores ferramentas para o sucesso. Estou construindo uma base sólida de conhecimentos, com o objetivo de atuar como desenvolvedor front-end e futuramente especialista em tecnologia.
-      </p>
-    </section>
-
-    <section>
-      <h2>Competências</h2>
-      <ul>
-        <li>Python (lógica de programação, listas, projetos simples)</li>
-        <li>C (conceitos iniciais e prática acadêmica)</li>
-        <li>Swift (desenvolvimento iOS básico)</li>
-        <li>AWS Cloud Foundations (serviços e arquitetura básica)</li>
-        <li>Fundamentos de Linux (Red Hat Academy)</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Formação e Cursos</h2>
-      <ul>
-        <li>Bacharelado em Ciência da Computação - Mackenzie</li>
-        <li>Foundations iOS - Apple Foundation Program</li>
-        <li>RH104 - Linux Fundamentals (Red Hat Academy)</li>
-        <li>AWS Academy Cloud Foundations</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Currículo</h2>
-      <p>Você pode baixar meu currículo completo clicando no botão abaixo:</p>
-      <a class="btn-download" href="curriculo-kaua.pdf" download><i class="fas fa-download"></i> Baixar Currículo</a>
-    </section>
-
-    <section>
-      <h2>Contato</h2>
-      <div class="icons">
-        <a href="https://github.com/niirah" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/devkaua" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <p>Email: <a href="mailto:Kauaje18@gmail.com">Kauaje18@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/niirah" target="_blank">github.com/niirah</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/devkaua" target="_blank">linkedin.com/in/devkaua</a></p>
-    </section>
+  <div class="profile-pic-container">
+    <img src="foto.jpg" alt="Sua foto" class="profile-pic" />
   </div>
+
+  <h1>Kauã de Jesus</h1>
+  <p class="subtitle">Estudante de Ciência da Computação • Desenvolvedor iniciante</p>
+
+  <section class="contact-buttons">
+    <a href="mailto:kauaje18@gmail.com">Email</a>
+    <a href="https://www.instagram.com/kauaog77" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/in/devkaua" target="_blank">LinkedIn</a>
+  </section>
+
+  <div class="download-btn">
+    <a href="#" onclick="alert('Adicione o link do seu PDF!')">Baixar PDF</a>
+  </div>
+
+  <section id="sobre">
+    <h2>Sobre mim</h2>
+    <p>
+      Sou um estudante apaixonado por tecnologia, buscando me especializar em Ciência da Computação. 
+      Tenho experiência com Python, Swift e estou aprendendo C. 
+      Busco sempre evoluir como desenvolvedor front-end, unindo perfeccionismo, disciplina e trabalho em equipe.
+    </p>
+  </section>
+
+  <section id="habilidades">
+    <h2>Habilidades</h2>
+    <ul>
+      <li>✔️ Python (Intermediário)</li>
+      <li>✔️ Swift / SwiftUI</li>
+      <li>✔️ Git e GitHub</li>
+      <li>✔️ HTML, CSS e JavaScript (em aprendizado)</li>
+      <li>✔️ Linux Fundamentals e AWS (em curso)</li>
+      <li>✔️ Trabalho em equipe e pensamento lógico</li>
+    </ul>
+  </section>
 
   <footer>
     <p>© 2025 Kauã de Jesus. Todos os direitos reservados.</p>
   </footer>
+
 </body>
 </html>
