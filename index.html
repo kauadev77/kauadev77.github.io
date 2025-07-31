@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kauã de Jesus • Currículo</title>
+  <!-- Adicione os ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     * {
       margin: 0;
@@ -18,7 +20,7 @@
       background-size: 400% 400%;
       animation: gradient 15s ease infinite;
       color: white;
-      text-align: center;
+      text-align: left;
       padding: 30px;
     }
 
@@ -28,17 +30,16 @@
       100% { background-position: 0% 50%; }
     }
 
-    .profile-pic-container {
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 20px auto;
-      border-radius: 50%;
-      overflow: hidden;
+    .header-bg {
       position: relative;
-      border: 4px solid white;
+      width: 100%;
+      min-height: 240px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-end;
     }
 
-    .profile-pic-container::before {
+    .header-bg::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
@@ -48,44 +49,72 @@
       background-size: cover;
       background-position: center;
       filter: blur(4px) brightness(0.7);
+      z-index: 0;
+      opacity: 0.7;
+    }
+
+    .profile-pic-container {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid white;
+      position: relative;
       z-index: 1;
+      margin-left: 0;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
     }
 
     .profile-pic {
-      position: relative;
-      z-index: 2;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      margin-left: 180px;
+      margin-top: 30px;
     }
 
     h1 {
       font-size: 2em;
       margin-bottom: 10px;
+      color: #fff;
+      text-align: left;
     }
 
     p.subtitle {
       font-size: 1.2em;
       color: #ccc;
       margin-bottom: 30px;
+      text-align: left;
     }
 
     section {
       margin: 40px 0;
+      text-align: left;
     }
 
     section h2 {
       font-size: 1.5em;
       margin-bottom: 15px;
       color: #fff;
+      text-align: left;
     }
 
     section p, ul {
       max-width: 600px;
-      margin: auto;
+      margin: 0;
       font-size: 1em;
       line-height: 1.6;
       color: #ccc;
+      text-align: left;
     }
 
     ul {
@@ -96,6 +125,7 @@
     ul li {
       margin-bottom: 10px;
       transition: 0.3s;
+      text-align: left;
     }
 
     ul li:hover {
@@ -105,19 +135,24 @@
 
     .contact-buttons {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 15px;
       margin-top: 20px;
       flex-wrap: wrap;
+      text-align: left;
     }
 
     .contact-buttons a {
       text-decoration: none;
       color: white;
       border: 1px solid white;
-      padding: 10px 20px;
+      padding: 10px 20px 10px 16px;
       border-radius: 30px;
       transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
     }
 
     .contact-buttons a:hover {
@@ -128,6 +163,7 @@
 
     .download-btn {
       margin-top: 40px;
+      text-align: left;
     }
 
     .download-btn a {
@@ -139,6 +175,7 @@
       text-decoration: none;
       color: white;
       transition: 0.3s;
+      display: inline-block;
     }
 
     .download-btn a:hover {
@@ -150,26 +187,41 @@
       margin-top: 60px;
       font-size: 0.8em;
       color: #888;
+      text-align: left;
+    }
+
+    @media (max-width: 700px) {
+      .header-content {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+      .header-bg {
+        flex-direction: column;
+        min-height: 180px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="profile-pic-container">
-    <img src="foto.jpg" alt="Sua foto" class="profile-pic" />
+  <div class="header-bg">
+    <div class="profile-pic-container">
+      <img src="foto.jpg" alt="Sua foto" class="profile-pic" />
+    </div>
+    <div class="header-content">
+      <h1>Kauã de Jesus</h1>
+      <p class="subtitle">Estudante de Ciência da Computação • Desenvolvedor iniciante</p>
+    </div>
   </div>
 
-  <h1>Kauã de Jesus</h1>
-  <p class="subtitle">Estudante de Ciência da Computação • Desenvolvedor iniciante</p>
-
   <section class="contact-buttons">
-    <a href="mailto:kauaje18@gmail.com">Email</a>
-    <a href="https://www.instagram.com/kauaog77" target="_blank">Instagram</a>
-    <a href="https://www.linkedin.com/in/devkaua" target="_blank">LinkedIn</a>
+    <a href="mailto:kauaje18@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    <a href="https://www.instagram.com/kauaog77" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://www.linkedin.com/in/devkaua" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
   </section>
 
   <div class="download-btn">
-    <a href="#" onclick="alert('Adicione o link do seu PDF!')">Baixar PDF</a>
+    <a href="#" onclick="alert('Adicione o link do seu PDF!')"><i class="fas fa-file-download"></i> Baixar PDF</a>
   </div>
 
   <section id="sobre">
@@ -187,8 +239,7 @@
       <li>✔️ Python (Intermediário)</li>
       <li>✔️ Swift / SwiftUI</li>
       <li>✔️ Git e GitHub</li>
-      <li>✔️ HTML, CSS e JavaScript (em aprendizado)</li>
-      <li>✔️ Linux Fundamentals e AWS (em curso)</li>
+      <li>✔️ Linux Fundamentals e AWS</li>
       <li>✔️ Trabalho em equipe e pensamento lógico</li>
     </ul>
   </section>
